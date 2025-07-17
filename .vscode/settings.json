@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "parton_level_analysis_10TeV_plot.C": "cpp",
+        "parton_level_analysis_10TeV.C": "cpp",
+        "parton_level_analysis_10TeV_vbf_only.C": "cpp",
+        "parton_level_analysis_3TeV_plot.C": "cpp",
+        "parton_level_analysis_3TeV.C": "cpp"
+    }
+}
