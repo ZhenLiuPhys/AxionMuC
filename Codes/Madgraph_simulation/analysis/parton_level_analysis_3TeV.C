@@ -241,12 +241,13 @@ void parton_level_analysis_3TeV(){
     }
     int j1_index = 4;
     int j2_index = 5;
-    
+    //countnumber_bkg1[0]=countnumber_bkg1[0]+weight_bkg11;
     j1.SetPtEtaPhiM(Particle_PT[j1_index],Particle_Eta[j1_index],Particle_Phi[j1_index],0);
     j2.SetPtEtaPhiM(Particle_PT[j2_index],Particle_Eta[j2_index],Particle_Phi[j2_index],0);
     if (abs(j1.Eta())<2.5 && abs(j2.Eta())<2.5) {
       //Mjj_plot_bkg1->Fill((j1+j2).M()/1000,weight_bkg11);
       countnumber_bkg1[0]=countnumber_bkg1[0]+weight_bkg11;
+      //countnumber_bkg2[0]=countnumber_bkg1[0]+weight_bkg11;
     }
     
     //mCP_Eta_plot_signal->Fill(Particle_Eta[mCP_index]);
@@ -565,7 +566,7 @@ void parton_level_analysis_3TeV(){
   xs_s1[12]=(7.6e-11 + 2*3.16e-12 + 2.5e-12 + 2.36e-14)*1e6*ratioofBR[12]; 
 
   //*1e6 because fa=1000; zax + 2*aw2wax + 2*zw2wax + ww2zax
-  xs_s2[0]=(1.5e-9 + 2*2.13e-10 + 2*3.8e-11 + 1.16e-10)*1e6*ratioofBR[0];
+  /* xs_s2[0]=(1.5e-9 + 2*2.13e-10 + 2*3.8e-11 + 1.16e-10)*1e6*ratioofBR[0];
   xs_s2[1]=(2.58e-9 + 2*1.9e-10 + 2*3.8e-11 + 1.12e-10)*1e6*ratioofBR[1];
   xs_s2[2]=(2.44e-9 + 2*1.55e-10 + 2*3.42e-11 + 9.42e-11)*1e6*ratioofBR[2];
   xs_s2[3]=(2.13e-9 + 2*1.13e-10 + 2*2.78e-11 + 6.74e-11)*1e6*ratioofBR[3];
@@ -577,7 +578,22 @@ void parton_level_analysis_3TeV(){
   xs_s2[9]=(2.259e-10 + 2*1.51e-11 + 2*4.35e-12 + 1.96e-12)*1e6*ratioofBR[9];
   xs_s2[10]=(7.28e-11 + 2*5.8e-12 + 2*1.7e-12 + 2.51e-13)*1e6*ratioofBR[10];
   xs_s2[11]=(4.6e-11 + 2*1.74e-12 + 2*5.1e-13 + 1.74e-14)*1e6*ratioofBR[11];
-  xs_s2[12]=(5.3e-14 + 2*9.01e-15 + 2*2.69e-15 + 2.14e-20)*1e6*ratioofBR[12];
+  xs_s2[12]=(5.3e-14 + 2*9.01e-15 + 2*2.69e-15 + 2.14e-20)*1e6*ratioofBR[12]; */
+
+  //*1e6 because fa=1000; 2*aw2wax + 2*zw2wax + ww2zax
+  xs_s2[0]=(2*2.13e-10 + 2*3.8e-11 + 1.16e-10)*1e6*ratioofBR[0];
+  xs_s2[1]=(2*1.9e-10 + 2*3.8e-11 + 1.12e-10)*1e6*ratioofBR[1];
+  xs_s2[2]=(2*1.55e-10 + 2*3.42e-11 + 9.42e-11)*1e6*ratioofBR[2];
+  xs_s2[3]=(2*1.13e-10 + 2*2.78e-11 + 6.74e-11)*1e6*ratioofBR[3];
+  xs_s2[4]=(2*9.15e-11 + 2*2.35e-11 + 5.12e-11)*1e6*ratioofBR[4];
+  xs_s2[5]=(2*7.33e-11 + 2*1.95e-11 + 3.74e-11)*1e6*ratioofBR[5];
+  xs_s2[6]=(2*5.06e-11 + 2*1.4e-11 + 2.05e-11)*1e6*ratioofBR[6];
+  xs_s2[7]=(2*3.28e-11 + 2*9.25e-12 + 9.38e-12)*1e6*ratioofBR[7];
+  xs_s2[8]=(2*2.32e-11 + 2*6.62e-12 + 4.75e-12)*1e6*ratioofBR[8];
+  xs_s2[9]=(2*1.51e-11 + 2*4.35e-12 + 1.96e-12)*1e6*ratioofBR[9];
+  xs_s2[10]=(2*5.8e-12 + 2*1.7e-12 + 2.51e-13)*1e6*ratioofBR[10];
+  xs_s2[11]=(2*1.74e-12 + 2*5.1e-13 + 1.74e-14)*1e6*ratioofBR[11];
+  xs_s2[12]=(2*9.01e-15 + 2*2.69e-15 + 2.14e-20)*1e6*ratioofBR[12];
 
 
   vector<double> f_a(13,0);

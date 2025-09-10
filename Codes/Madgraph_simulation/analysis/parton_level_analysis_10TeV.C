@@ -32,13 +32,25 @@ void parton_level_analysis_10TeV(){
   
   TFile *f8 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_5_8/research/axion_muc/bkg/mumu2vmvmjj/Events/10TeV_mjj_9500GeV_9900GeV/unweighted_events.root");
 
-  TFile *f81 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_5_8/research/axion_muc/bkg/mumu2Vjj_inv/Events/10TeV_inv_V_mjj_130_9800/unweighted_events.root");
+  TFile *f81 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_5_8/research/axion_muc/bkg/mumu2Vjj/Events/10TeV_eta_larger_2_5_v3/unweighted_events.root");
 
-  TFile *f9 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_5_8/research/axion_muc/bkg/mumu2Vjj/Events/10TeV_mjj_130_9800/unweighted_events.root");
+  TFile *f9 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_5_8/research/axion_muc/bkg/mumu2Vjj/Events/10TeV_eta_less_2_5_v3/unweighted_events.root");
 
   TFile *f10 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_5_8/research/axion_muc/bkg/aa2wjj/Events/10TeV_mjj_130_9800/unweighted_events.root");
   
   
+  //TFile *f3 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_5_7/mCP/mCP_Al/Events/m_e_2GeV/unweighted_events.root");
+  
+
+  //TFile *f4 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_4_0/mCP/mCP_Al/Events/m_e_1GeV/unweighted_events.root");
+
+
+  //TFile *f5 = TFile::Open("/mnt/e/Madgraph/MG5_aMC_v3_4_0/mCP/mCP_Al/Events/m_1GeV/unweighted_events.root");
+  
+  
+  
+  
+  //TTree *s1 = (TTree*)f0->Get("LHEF");
   
   
   TTree *b11 = (TTree*)f1->Get("LHEF");
@@ -54,6 +66,10 @@ void parton_level_analysis_10TeV(){
 
   TTree *b31 = (TTree*)f9->Get("LHEF");
   TTree *b32 = (TTree*)f10->Get("LHEF");
+
+  //TTree *b4 = (TTree*)f4->Get("LHEF");
+  
+  //TTree *b5 = (TTree*)f5->Get("LHEF");
   
   
 
@@ -746,6 +762,7 @@ void parton_level_analysis_10TeV(){
   xs_s[10]=(6.7e-10 + 2*3.43e-11 + 3.4e-11 + 8.64e-11 + 1.2e-10 + 2*2e-9 + 2*1.5e-9 + 4.1e-9)*1e6*ratioofBR[10];
   xs_s[11]=(3.035e-10 + 2*1.58e-11 + 1.6e-11 + 1.14e-11 + 1.8e-11 + 2*5e-11 + 2*3.2e-11 + 7.3e-11)*1e6*ratioofBR[11]; */
 
+  // *1e6 because fa=1000; mumuax(aa2ax,2*za2ax,zz2ax) + vmvmax(ww2ax)
   xs_s1[0]=(8.1e-9 + 2*1.24e-11 + 0       + 3.8e-9)*1e6*ratioofBR[0]; // *1e6 is to set fa=1, not fa=1000
   xs_s1[1]=(8.71e-9 + 2*7.73e-10 + 1.3e-11 + 2.96e-10)*1e6*ratioofBR[1];
   xs_s1[2]=(9.22e-9 + 2*1.65e-10 + 5.8e-11 + 9.98e-10)*1e6*ratioofBR[2];
@@ -759,7 +776,8 @@ void parton_level_analysis_10TeV(){
   xs_s1[10]=(6.7e-10 + 2*3.43e-11 + 3.4e-11 + 8.64e-11)*1e6*ratioofBR[10];
   xs_s1[11]=(3.035e-10 + 2*1.58e-11 + 1.6e-11 + 1.14e-11)*1e6*ratioofBR[11];
 
-  xs_s2[0]=(1.58e-10 + 2*7.3e-10 + 2*1.64e-10 + 5.25e-10)*1e6*ratioofBR[0]; // *1e6 is to set fa=1, not fa=1000
+  // *1e6 because fa=1000; zax + 2*aw2wax + 2*zw2wax + ww2zax
+  /*xs_s2[0]=(1.58e-10 + 2*7.3e-10 + 2*1.64e-10 + 5.25e-10)*1e6*ratioofBR[0]; // *1e6 is to set fa=1, not fa=1000
   xs_s2[1]=(3.8e-10 + 2*8.06e-10 + 2*2.04e-10 + 6.32e-10)*1e6*ratioofBR[1];
   xs_s2[2]=(9.5e-10 + 2*8.01e-10 + 2*2.178e-10 + 6.6e-10)*1e6*ratioofBR[2];
   xs_s2[3]=(2.6e-9 + 2*7.36e-10 + 2*2.182e-10 + 6.5e-10)*1e6*ratioofBR[3];
@@ -770,7 +788,21 @@ void parton_level_analysis_10TeV(){
   xs_s2[8]=(7.0e-10 + 2*1.39e-10 + 2*5.17e-11 + 6.3e-11)*1e6*ratioofBR[8];
   xs_s2[9]=(3.5e-10 + 2*8.4e-11 + 2*3.12e-11 + 2.4e-11)*1e6*ratioofBR[9];
   xs_s2[10]=(1.2e-10 + 2*4.25e-11 + 2*1.58e-11 + 5.46e-12)*1e6*ratioofBR[10];
-  xs_s2[11]=(1.8e-11 + 2*1.27e-11 + 2*4.73e-12 + 3.6e-13)*1e6*ratioofBR[11];
+  xs_s2[11]=(1.8e-11 + 2*1.27e-11 + 2*4.73e-12 + 3.6e-13)*1e6*ratioofBR[11]; */
+
+  // *1e6 because fa=1000; 2*aw2wax + 2*zw2wax + ww2zax
+  xs_s2[0]=(2*7.3e-10 + 2*1.64e-10 + 5.25e-10)*1e6*ratioofBR[0]; // *1e6 is to set fa=1, not fa=1000
+  xs_s2[1]=(2*8.06e-10 + 2*2.04e-10 + 6.32e-10)*1e6*ratioofBR[1];
+  xs_s2[2]=(2*8.01e-10 + 2*2.178e-10 + 6.6e-10)*1e6*ratioofBR[2];
+  xs_s2[3]=(2*7.36e-10 + 2*2.182e-10 + 6.5e-10)*1e6*ratioofBR[3];
+  xs_s2[4]=(2*5.65e-10 + 2*1.87e-10 + 5.1e-10)*1e6*ratioofBR[4];
+  xs_s2[5]=(2*4.18e-10 + 2*1.47e-10 + 3.56e-10)*1e6*ratioofBR[5];
+  xs_s2[6]=(2*3.03e-10 + 2*1.1e-10 + 2.28e-10)*1e6*ratioofBR[6];
+  xs_s2[7]=(2*2.12e-10 + 2*7.75e-11 + 1.3e-10)*1e6*ratioofBR[7];
+  xs_s2[8]=(2*1.39e-10 + 2*5.17e-11 + 6.3e-11)*1e6*ratioofBR[8];
+  xs_s2[9]=(2*8.4e-11 + 2*3.12e-11 + 2.4e-11)*1e6*ratioofBR[9];
+  xs_s2[10]=(2*4.25e-11 + 2*1.58e-11 + 5.46e-12)*1e6*ratioofBR[10];
+  xs_s2[11]=(2*1.27e-11 + 2*4.73e-12 + 3.6e-13)*1e6*ratioofBR[11];
 
 
   vector<double> f_a(12,0);
@@ -780,6 +812,9 @@ void parton_level_analysis_10TeV(){
     
     xs_b2[i]=0.7*( 0*1.344*countnumber_bkg11[i+1]/countnumber_bkg11[0] + 0*0.00242*countnumber_bkg12[i+1]/countnumber_bkg12[0] + 0*4.16e-5*countnumber_bkg13[i+1]/countnumber_bkg13[0] + 0*6.56e-6*countnumber_bkg14[i+1]/countnumber_bkg14[0] + 0*0.057*countnumber_bkg21[i+1]/countnumber_bkg21[0] + 0*0.00115*countnumber_bkg22[i+1]/countnumber_bkg22[0] + 0*6e-5*countnumber_bkg23[i+1]/countnumber_bkg23[0] + 0*8.8e-6*countnumber_bkg24[i+1]/countnumber_bkg24[0] + 0.00269*countnumber_bkg31[i+1]/countnumber_bkg31[0] + 2*0.00342*countnumber_bkg32[i+1]/countnumber_bkg32[0] );
     // *0.7 refers to Z/W visible decay
+    if (xs_b2[i] == 0){
+      f_a[i]=sqrt(xs_s1[i]*0.7*1e7/3); // 0.7 is the visible branching ratio of W and Z.
+    }
     if (xs_b2[i] > 0){
       f_a[i]=sqrt(0.5*sqrt( ( xs_s1[i]*xs_s1[i]*1e7/xs_b1[i] ) + ( xs_s2[i]*xs_s2[i]*0.7*0.7*0.8*0.8*1e7/xs_b2[i] ) ));  // 0.7 is the visible branching ratio of W and Z. 0.8 is for reconstruction efficiency such as eta<2.5
     }
@@ -849,6 +884,41 @@ void parton_level_analysis_10TeV(){
   c110->SetGridx();
   //c110->SaveAs("/mnt/e/Madgraph/MG5_aMC_v3_5_8/research/axion_muc/plot_macro/output_plot/Mjj_bkg_plot_10TeV.pdf");
   
+  
+ 
+  /*TCanvas *c1101 = new TCanvas();
+  Mjj_plot_bkg3->SetStats(0);
+  
+  Mjj_plot_bkg3->SetLineColor(4);
+
+  Mjj_plot_bkg3->SetLineWidth(2);
+ 
+  
+  Mjj_plot_bkg3->GetXaxis()->SetTitle("M_{jj} [GeV]");
+  Mjj_plot_bkg3->GetYaxis()->SetTitle("d#sigma/dM_{jj} [pb/GeV]");
+  Mjj_plot_bkg3->GetXaxis()->SetTitleSize(0.05);
+  Mjj_plot_bkg3->GetYaxis()->SetTitleSize(0.05);
+  Mjj_plot_bkg3->GetXaxis()->SetLabelSize(0.04);
+  Mjj_plot_bkg3->GetYaxis()->SetLabelSize(0.04);
+  Mjj_plot_bkg3->GetYaxis()->SetRangeUser(0.00001,2);
+  
+  Mjj_plot_bkg3->Draw("HIST");
+  //Mjj_plot_bkg2->Draw("HIST" "same");
+
+  TLegend *l_Mjj_plot1 = new TLegend(0.82,0.77,0.95,0.9);
+  l_Mjj_plot1->AddEntry(Mjj_plot_bkg3,"#mu#mujj_9800","l");
+  //l_Mjj_plot1->AddEntry(Mjj_plot_bkg2,"#nu_{#mu}#nu_{#mu}jj","l");
+  
+  
+  
+  l_Mjj_plot1->Draw();
+  
+  
+  c1101->SetLogy();
+  c1101->SetTickx();
+  c1101->SetTicky();
+  c1101->SetGridx();
+  c1101->SaveAs("/mnt/e/Madgraph/MG5_aMC_v3_5_7/research/axion_muc/plot_macro/output_plot/Mjj_bkg_plot_test14.png");*/
   
   
 }
